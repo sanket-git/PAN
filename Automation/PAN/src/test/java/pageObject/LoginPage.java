@@ -12,7 +12,9 @@ public class LoginPage {
 
 	public static class Login{
 
-		public static WebElement janrainLogin(WebDriver driver, JANRAIN_TYPE janrainType){
+		public static  WebElement janrainElement(WebDriver driver, JANRAIN_TYPE janrainType){
+			String url = "https://www.paloaltonetworks.com/login";
+			driver.get(url);
 
 			switch (janrainType)
 			{
@@ -34,14 +36,21 @@ public class LoginPage {
 			return element;
 		}
 
-		public static WebElement researchLogin(WebDriver driver){
-			element.findElement(By.id(""));
-			return element;
+		public static WebElement researchLoginUsername(WebDriver driver){
+			return driver.findElement(By.id("capture_signIn_signInEmailAddress"));
 		}
 
-		public static WebElement ssoLogin(WebDriver driver){
-			element.findElement(By.id(""));
-			return element;
+		public WebElement ssoLogin(WebDriver driver){
+			return driver.findElement(By.id(""));
+			
+		}
+		
+		public static WebElement researchLoginPassword(WebDriver driver){
+			return driver.findElement(By.id("capture_signIn_currentPassword"));
+			
+		}
+		public static WebElement researchLoginButton(WebDriver driver){
+			return driver.findElement(By.xpath("//*[@id='capture_signIn_signInForm']//button[@type='submit']"));
 		}
 
 	}

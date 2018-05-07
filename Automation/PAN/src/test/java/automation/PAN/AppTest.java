@@ -34,7 +34,8 @@ public class AppTest
 	public void startup() {
 		Log.info("Startup is called");
 		driver = Base.getDriver("chrome");
-		driver.get("https://www.paloaltonetworks.com");
+		driver.get("https://www.paloaltonetworks.com/resources");
+		driver.manage().window().maximize();
 	}
 
 
@@ -55,7 +56,7 @@ public class AppTest
 
 
 	/**
-	 * Rigourous Test :-)
+	 * Test Sample
 	 * @throws Exception 
 	 */
 	@Test
@@ -63,14 +64,15 @@ public class AppTest
 	{
 		Log.info("Apptest is called");
 		HomePageAction.login(driver);
+		Thread.sleep(2000);
 		Assert.assertTrue( true );
 	}
 
 	@AfterTest
-	public void teardown() throws InterruptedException {
-		Log.info("Tear Down is called");
+	public void teardown() throws Exception {
+		//Log.info("Tear Down is called");
 		Thread.sleep(10000);
-		driver.close();
+		//driver.close();
 		driver.quit();
 	}
 }
