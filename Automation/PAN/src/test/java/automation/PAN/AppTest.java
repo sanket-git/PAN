@@ -11,7 +11,9 @@ import utility.Constants;
 import utility.ExcelUtils;
 import utility.Log;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriver.Window;
 import org.testng.Assert;
 
 /**
@@ -36,6 +38,9 @@ public class AppTest
 		driver = Base.getDriver("chrome");
 		driver.get("https://www.paloaltonetworks.com/resources");
 		driver.manage().window().maximize();
+		String winHandle= driver.getWindowHandle();
+		driver.findElement(By.xpath("//div[@id='mboxImported-default-target-global-mbox-0']//a[@data-cta-track='ignite2018-pop-up:en_us:default']")).click();
+		driver.switchTo().window(winHandle);
 	}
 
 

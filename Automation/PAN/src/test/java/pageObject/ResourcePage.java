@@ -42,8 +42,13 @@ public class ResourcePage {
 		
 		public static WebElement selectResource(WebDriver driver, String title) {
 			System.out.println("************"+driver.findElement(By.linkText("2018 NSS Labs Advanced Endpoint Protection Report")).getText());
-			return driver.findElement(By.linkText("2018 NSS Labs Advanced Endpoint Protection Report"));
-			//return driver.findElement(By.xpath("//*[@id='searchresults']/div[@class='chicklet']//a[contains(text(),'2018 NSS Labs Advanced Endpoint Protection Report')]"));
+			List <WebElement> linktxt = driver.findElements(By.linkText("2018 NSS Labs Advanced Endpoint Protection Report"));
+			for(WebElement element : linktxt){
+				System.out.println("**********"+element.getText());
+			}
+			return driver.findElement(By.xpath("//a[@href='/resources/whitepapers/2018-nss-labs-advanced-endpoint-protection-report'][contains(text(),'2018 NSS Labs Advanced Endpoint Protection Report')]"));
+			//return driver.findElement(By.linkText("2018 NSS Labs Advanced Endpoint Protection Report"));
+			//return driver.findElement(By.xpath("//*[@id='searchresults']//ancestor::div[@class='chicklet']//a[contains(text(),'2018 NSS Labs Advanced Endpoint Protection Report')]"));
 			}
 		
 		public static WebElement selectFacet(WebDriver driver, String filter){

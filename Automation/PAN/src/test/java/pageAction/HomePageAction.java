@@ -10,7 +10,7 @@ public class HomePageAction {
 	public static void login(WebDriver driver) throws Exception {
 		
 		ResourcePage.Search.selectFacet(driver, "White Paper");
-		ResourcePage.Search.searchText(driver, "whitepaper");
+		ResourcePage.Search.searchText(driver, "2018 NSS Labs Advanced Endpoint Protection Report");
 		ResourcePage.Search.selectResource(driver, "2018 NSS Labs Advanced Endpoint Protection Report").click();
 		System.out.println("*****"+driver.getTitle());
 		//HomePage.Login.loginLink(driver).click();
